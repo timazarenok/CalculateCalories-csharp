@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CaloriesCalculator"
+        xmlns:local="clr-namespace:CaloriesCalculator" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="LightSkyBlue">
     <Grid>
@@ -24,10 +24,11 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition Width="90"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="#fe145f" Margin="0,0,0,10"/>
-                        <TextBlock Text="Вес: " Grid.Column="0" Grid.Row="1" Margin="0,0,0,10"/>
-                        <TextBlock Text="{Binding Weight}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+                        <TextBlock Text="Категория: " Grid.Column="0" Grid.Row="1" Margin="0,0,0,10"/>
+                        <TextBlock Text="{Binding Category}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
                         <TextBlock Text="Калории: " Grid.Column="2" Grid.Row="1" Margin="10,0,0,10"/>
                         <TextBlock Text="{Binding Calories}" Grid.Row="1" Grid.Column="3" Margin="10,0,0,10"/>
                         <TextBlock Text="Белки: " Grid.Column="0" Grid.Row="2" Margin="0,0,0,10"/>
@@ -36,9 +37,16 @@
                         <TextBlock Text="{Binding Fats}" Grid.Row="2" Grid.Column="3" Margin="10,0,0,10"/>
                         <TextBlock Text="Углеводы: " Grid.Column="0" Grid.Row="5" Margin="0,0,0,10"/>
                         <TextBlock Text="{Binding Carbohydrates}" Grid.Row="5" Grid.Column="1" Margin="0,0,0,10"/>
+                        <Button x:Name="AddInStatistics" Width="40" Height="40" Content="+" Margin="20,0,0,0" FontSize="15" Grid.Row="1" Grid.Column="4" Click="AddInStatistics_Click" BorderThickness="0" Background="#98c1d9"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Label Content="Ваша дневная статистика" Margin="0,0,70,0" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <lvc:PieChart x:Name="Chart" LegendLocation="Bottom" Hoverable="True" DataTooltip="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="150" Margin="400,0,0,100">
+        </lvc:PieChart>
+        <Button Click="UpdateAllOnClick" Padding="10 0" BorderThickness="0" Background="#98c1d9"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,300,70,0" Width="100" Height="25">
+            Обновить
+        </Button>
     </Grid>
 </Window>

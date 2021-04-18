@@ -12,6 +12,7 @@ namespace CaloriesCalculator
     static class SqlDB
     {
         private const string connectionString = @"Server=DESKTOP-VLADISL;Database=CaloriesCalculate;Trusted_Connection=True;";
+        public static int UserID = 0;
         public static bool Command(string expression)
         {
             SqlConnection connection = new SqlConnection(connectionString);
@@ -32,6 +33,15 @@ namespace CaloriesCalculator
                 return true;
             }
             return false;
+        }
+
+        public static void GetUserId(string login, string password)
+        {
+            DataTable find = Select($"select * from [Users] where login='{login}' and password='{password}'");
+            if (find.Rows.Count > 0)
+            {
+                UserID = Convert.ToInt32(find.Rows[0]["id"]);
+            }
         }
 
         public static DataTable Select(string selectString)

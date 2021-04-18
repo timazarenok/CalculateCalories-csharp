@@ -39,8 +39,18 @@ namespace CaloriesCalculator
         {
             return new Regex("[A-Za-z0-9]{8,20}").IsMatch(password);
         }
+        public bool RegexAdmin(string login, string password)
+        {
+            return new Regex("adminadmin").IsMatch(login + password);
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (RegexAdmin(LoginBox.Text, Password.Password))
+            {
+                AdminWindow admin = new AdminWindow();
+                admin.Show();
+                Close();
+            }
             if (RegexLogin(LoginBox.Text))
             {
                 if (RegexPassword(Password.Password))
@@ -49,7 +59,8 @@ namespace CaloriesCalculator
                     if (find.Rows.Count > 0)
                     {
                         MainWindow mw = new MainWindow();
-                        mw.Show();
+                        SqlDB.UserID = Convert.ToInt32(find.Rows[0]["id"]);
+                        mw.Show();  
                         Close();
                         MessageBox.Show("Пользователь авторизовался");
                     }

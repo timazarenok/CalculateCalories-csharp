@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Lenovo\OneDrive\Рабочий стол\CaloriesCalculator\CaloriesCalculator\obj\Debug\
+C:\Users\Lenovo\OneDrive\Рабочий стол\CalculateCalories-csharp\CaloriesCalculator\obj\Debug\
 CaloriesCalculator
 none
 false
 DEBUG;TRACE
-C:\Users\Lenovo\OneDrive\Рабочий стол\CaloriesCalculator\CaloriesCalculator\App.xaml
-3384554857
+C:\Users\Lenovo\OneDrive\Рабочий стол\CalculateCalories-csharp\CaloriesCalculator\App.xaml
+7-1949698804
 
-10-964576475
-13-1505183044
-Login.xaml;MainWindow.xaml;Registration.xaml;
+16-134592679
+15-1146977802
+AdminWindow.xaml;DishesIngredients.xaml;DishesWindow.xaml;IngredientsWindow.xaml;Login.xaml;MainWindow.xaml;Registration.xaml;
 
 True
 

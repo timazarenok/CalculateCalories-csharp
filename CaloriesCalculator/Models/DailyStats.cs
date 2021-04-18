@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaloriesCalculator
+namespace CaloriesCalculator.Models
 {
-    class Ingredient
+    public class DailyStats
     {
-        public string Name { get; set; }
-        public int Weight { get; set; }
+        public string Date { get; set; }
+        public int Water { get; set; }
         public int Calories { get; set; }
         public int Proteins { get; set; }
         public int Fats { get; set; }

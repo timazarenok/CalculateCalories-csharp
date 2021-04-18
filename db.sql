@@ -26,7 +26,10 @@ create table Dishes (
 id int Identity(1,1) primary key,
 id_category int references Categories(id) on delete cascade,
 [name] varchar(30),
-calories int
+proteins int default 0,
+fats int default 0,
+carbohydrates int default 0,
+calories int default 0
 )
 
 create table Dishes_Ingredients (
@@ -35,7 +38,20 @@ id_ingredient int references Ingredients(id) on delete cascade,
 id_dish int references Dishes(id) on delete cascade
 )
 
-insert into Ingredients values('Картошка', 100, 50, 10, 20, 30), ('Лук', 100, 20, 20, 10, 5), 
-('Помидор', 100, 150, 50, 30, 25), ('Оругцы', 100, 50, 10, 20, 30), ('Банана', 100, 20, 20, 10, 15), ('Апельсин', 100, 25, 10, 15, 10)
-select * from Ingredients;
-insert into Categories values ('Овощи'), ('Фрукты')
+create table Users_Dishes (
+id int Identity(1,1) primary key,
+id_user int references Users(id) on delete cascade,
+id_dish int references Dishes(id) on delete cascade,
+[date] date
+)
+
+create table Dayily_Stats (
+id int Identity(1,1) primary key,
+id_user int references Users(id) on delete cascade,
+[date] date,
+water int,
+proteins int,
+fats int,
+carbohydrates int,
+calories int
+)

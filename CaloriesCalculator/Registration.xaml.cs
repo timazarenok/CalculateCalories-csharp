@@ -54,6 +54,7 @@ namespace CaloriesCalculator
                                 SqlDB.Command($"insert into [Users] values('{LoginBox.Text}', '{Password.Password}')");
                                 MessageBox.Show("Успешно создан");
                                 MainWindow mw = new MainWindow();
+                                SqlDB.GetUserId(LoginBox.Text, Password.Password);
                                 mw.Show();
                                 Close();
                             }

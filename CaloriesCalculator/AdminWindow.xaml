@@ -9,8 +9,10 @@
     <Grid>
         <StackPanel>
             <Button x:Name="Ingredients" Content="Ингредиенты" Width="150" Height="30" Click="Ingredients_Click"/>
+            <Button x:Name="Categories" Content="Категории" Width="150" Height="30" Click="Categories_Click"/>
             <Button x:Name="Dishes" Content="Блюда" Width="150" Height="30" Click="Dishes_Click"/>
             <Button x:Name="DishesIngredients" Width="150" Height="30" Content="Ингредиенты в блюдах" Click="DishesIngredients_Click"/>
         </StackPanel>
+        <Button x:Name="Exit" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Height="30" Margin="30,0,0,30" Click="Exit_Click">Выход</Button>
     </Grid>
 </Window>

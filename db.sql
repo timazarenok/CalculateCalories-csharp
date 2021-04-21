@@ -3,8 +3,7 @@ use CaloriesCalculate;
 
 create table Users (
 id int Identity(1,1) primary key,
-[login] varchar(15),
-[password] varchar(20)
+[login] varchar(30),
 )
 
 create table Categories (

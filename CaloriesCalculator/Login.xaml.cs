@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -25,50 +26,56 @@ namespace CaloriesCalculator
         {
             InitializeComponent();
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Registration reg = new Registration();
-            reg.Show();
-            Close();
-        }
         public bool RegexLogin(string login)
         {
-            return new Regex("[A-Za-z0-9]{4,15}").IsMatch(login);
+            try
+            {
+                MailAddress m = new MailAddress(login);
+                return true;
+            }
+            catch(FormatException)
+            {
+                return false;
+            }
         }
         public bool RegexPassword(string password)
         {
             return new Regex("[A-Za-z0-9]{8,20}").IsMatch(password);
         }
-        public bool RegexAdmin(string login, string password)
+        public bool RegexAdmin(string login)
         {
-            return new Regex("adminadmin").IsMatch(login + password);
+            return new Regex(@"admin").IsMatch(login);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (RegexAdmin(LoginBox.Text, Password.Password))
+            if (RegexAdmin(LoginBox.Text))
             {
                 AdminWindow admin = new AdminWindow();
                 admin.Show();
                 Close();
             }
-            if (RegexLogin(LoginBox.Text))
+            else if (RegexLogin(LoginBox.Text))
             {
-                if (RegexPassword(Password.Password))
+                DataTable find = SqlDB.Select($"select * from [Users] where login='{LoginBox.Text}'");
+                if (find.Rows.Count > 0)
                 {
-                    DataTable find = SqlDB.Select($"select * from [Users] where login='{LoginBox.Text}' and password='{Password.Password}'");
-                    if (find.Rows.Count > 0)
-                    {
-                        MainWindow mw = new MainWindow();
-                        SqlDB.UserID = Convert.ToInt32(find.Rows[0]["id"]);
-                        mw.Show();  
-                        Close();
-                        MessageBox.Show("Пользователь авторизовался");
-                    }
-                    else MessageBox.Show("Такого пользователя не существует");
+                    MainWindow mw = new MainWindow();
+                    SqlDB.UserID = Convert.ToInt32(find.Rows[0]["id"]);
+                    mw.Show();
+                    Close();
+                    MessageBox.Show("Пользователь авторизовался");
                 }
-                else MessageBox.Show("Введите пароль");
+                else
+                {
+                    SqlDB.Command($"insert into [Users] values ('{LoginBox.Text}')");
+                    MainWindow mw = new MainWindow();
+                    find = SqlDB.Select($"select * from [Users] where login='{LoginBox.Text}'");
+                    SqlDB.UserID = Convert.ToInt32(find.Rows[0]["id"]);
+                    mw.Show();
+                    Close();
+                }
             }
-            else MessageBox.Show("Введите логин");
+            else MessageBox.Show("Введите E-mail");
         }
     }
 }

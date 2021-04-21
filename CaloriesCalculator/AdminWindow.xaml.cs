@@ -41,5 +41,18 @@ namespace CaloriesCalculator
             DishesIngredients window = new DishesIngredients();
             window.Show();
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Close();
+        }
+
+        private void Categories_Click(object sender, RoutedEventArgs e)
+        {
+            CategoriesWindow categories = new CategoriesWindow();
+            categories.Show();
+        }
     }
 }

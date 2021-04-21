@@ -38,7 +38,8 @@ namespace CaloriesCalculator
             int calories = 0;
             int proteins = 0;
             int fats = 0;
-            int carbohydrates = 0; 
+            int carbohydrates = 0;
+            int water = 0;
             SeriesCollection series = new SeriesCollection
             {
                 new PieSeries
@@ -68,7 +69,7 @@ namespace CaloriesCalculator
                 new PieSeries
                 {
                     Title = "Вода",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(13) },
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(water) },
                     DataLabels = true
                 }
             };
@@ -95,7 +96,6 @@ namespace CaloriesCalculator
                 return;
             }
             DataRow dr = dt.Rows[0];
-            MessageBox.Show(dt.Rows[0]["calories"] + "");
             DailyStats ds = new DailyStats();
             ds = new DailyStats { Date = dr["date"].ToString(), Water = Convert.ToInt32(dr["water"]),
                 Calories = Convert.ToInt32(dr["calories"]), Fats = Convert.ToInt32(dr["fats"]), 
@@ -135,6 +135,18 @@ namespace CaloriesCalculator
         {
             Dish dish = (Dish)Ingredients.SelectedItem;
             if (SqlDB.Command($"insert into Users_Dishes values ({SqlDB.UserID}, {dish.ID}, (SELECT getdate()))"));
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Close();
+        }
+
+        private void AddWater_Click(object sender, RoutedEventArgs e)
+        {
+            if (SqlDB.Command("Update Dayily_Stats set water += 100;"));
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Даник\Desktop\CalculateCalories-csharp\CaloriesCalculator\App.xaml
-7-1083916889
+8-783718246
 
-171798322132
+182033641224
 15-889922507
-AdminWindow.xaml;CategoriesWindow.xaml;DishesIngredients.xaml;DishesWindow.xaml;IngredientsWindow.xaml;Login.xaml;MainWindow.xaml;
+AdminWindow.xaml;CategoriesWindow.xaml;DishesIngredients.xaml;DishesWindow.xaml;IngredientsWindow.xaml;Login.xaml;MainWindow.xaml;PreviousDays.xaml;
 
-False
+True
 

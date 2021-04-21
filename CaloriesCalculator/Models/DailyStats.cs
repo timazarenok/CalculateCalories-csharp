@@ -8,6 +8,7 @@ namespace CaloriesCalculator.Models
 {
     public class DailyStats
     {
+        public int ID { get; set; }
         public string Date { get; set; }
         public int Water { get; set; }
         public int Calories { get; set; }

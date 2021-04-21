@@ -25,6 +25,7 @@ namespace CaloriesCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Dish> items = new List<Dish>();
         public MainWindow()
         {
             InitializeComponent();
@@ -78,7 +79,7 @@ namespace CaloriesCalculator
         public void GetIngredients()
         {
             DataTable data = SqlDB.Select($"select Dishes.id, Categories.[name] as category, Dishes.[name], proteins, fats, carbohydrates, calories from Dishes join Categories on Categories.id = id_category");
-            List<Dish> items = new List<Dish>();
+            items = new List<Dish>();
             foreach (DataRow dr in data.Rows)
             {
                 items.Add(new Dish() { ID = Convert.ToInt32(dr["id"]), Name = dr["name"].ToString(), Category = dr["category"].ToString(), 
@@ -147,6 +148,18 @@ namespace CaloriesCalculator
         private void AddWater_Click(object sender, RoutedEventArgs e)
         {
             if (SqlDB.Command("Update Dayily_Stats set water += 100;"));
+        }
+
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = Search.Text;
+            Ingredients.ItemsSource = items.FindAll(item => item.Name.Contains(text));
+        }
+
+        private void PreviousDays_Click(object sender, RoutedEventArgs e)
+        {
+            PreviousDays window = new PreviousDays();
+            window.Show();
         }
     }
 }

@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="LightSkyBlue">
     <Grid>
-        <ListBox x:Name="Ingredients" Margin="0,0,0,0" Height="430" Width="400" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Auto" MouseDoubleClick="Items_MouseDoubleClick">
+        <TextBox x:Name="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="25" Margin="0,5,0,0" TextChanged="Search_TextChanged" />
+        <ListBox x:Name="Ingredients" Margin="0,30,0,0" Height="380" Width="400" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Auto" MouseDoubleClick="Items_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -49,6 +50,7 @@
             Обновить
         </Button>
         <Button x:Name="AddWater" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200,205,0,0" Click="AddWater_Click">Добавить Воды (100мл)</Button>
+        <Button x:Name="PreviousDays" Width="120" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="550,0,0,30" Click="PreviousDays_Click">Предыдущие дни</Button>
         <Button x:Name="Exit" Width="120" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="170,0,0,30" Click="Exit_Click">Выход</Button>
     </Grid>
 </Window>

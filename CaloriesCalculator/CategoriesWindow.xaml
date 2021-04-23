@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CaloriesCalculator"
         mc:Ignorable="d"
-        Title="CategoriesWindow" Height="450" Width="800">
+        Title="Категории" Height="450" Width="800">
     <Grid>
         <Label FontSize="15" FontWeight="Bold" Content="Добавьте новую категорию" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
         <Label FontSize="13" Content="Название " HorizontalAlignment="Left" VerticalAlignment="Center" Margin=" 40,0,0,50"/>
         <TextBox x:Name="Content" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="40,0,0,0" />
         <Button x:Name="Confirm" Width="100" Height="20" HorizontalAlignment="Center" Margin="0,150,600,0" Click="Confirm_Click">Добавить</Button>
         <Button x:Name="Delete" Width="100" Height="20" HorizontalAlignment="Center" Margin="0,150,350,0" Click="Delete_Click">Удалить</Button>
-        <DataGrid x:Name="Table" AutoGenerateColumns="True" Width="400" Margin="350, 50, 0, 20"/>
+        <DataGrid x:Name="Table" AutoGenerateColumns="False" Width="400" Margin="350, 50, 0, 20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Width="175" Binding="{Binding Path=Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CaloriesCalculator"
         mc:Ignorable="d"
-        Title="DishesWindow" Height="450" Width="800">
+        Title="Блюда" Height="450" Width="800">
     <Grid>
         <Label FontSize="15" FontWeight="Bold" Content="Добавьте новое блюдо" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
         <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left" Width="150">
@@ -16,6 +16,14 @@
         </StackPanel>
         <Button x:Name="Confirm" Width="100" Height="20" HorizontalAlignment="Center" Margin="0,50,600,0" Click="Confirm_Click">Добавить</Button>
         <Button x:Name="Delete" Width="100" Height="20" HorizontalAlignment="Center" Margin="0,50,350,0" Click="Delete_Click">Удалить</Button>
-        <DataGrid x:Name="Table" AutoGenerateColumns="True" Width="400" Margin="350, 50, 0, 20"/>
+        <DataGrid x:Name="Table" AutoGenerateColumns="False" Width="400" Margin="350, 50, 0, 20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Продукт" Width="175" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Path=Category}"/>
+                <DataGridTextColumn Header="Белки" Binding="{Binding Path=Proteins}"/>
+                <DataGridTextColumn Header="Жиры" Binding="{Binding Path=Fats}"/>
+                <DataGridTextColumn Header="Углеводы" Binding="{Binding Path=Carbohydrates}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

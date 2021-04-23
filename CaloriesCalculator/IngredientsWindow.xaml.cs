@@ -45,14 +45,19 @@ namespace CaloriesCalculator
             Table.ItemsSource = ingredients;
         }
 
+        public int CaloriesCalculate(int p, int f, int c)
+        {
+            return p * 4 + f * 9 + c * 4;
+
+        }
+
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             int weight = Convert.ToInt32(Weight.Text);
-            int calories = Convert.ToInt32(Calories.Text);
             int proteins = Convert.ToInt32(Proteins.Text);
             int fats = Convert.ToInt32(Fats.Text);
             int carbohydrates = Convert.ToInt32(Carbohydrates.Text);
-            if(SqlDB.Command($"insert into Ingredients values ('{Content.Text}', {weight}, {calories}, {proteins}, {fats}, {carbohydrates})"))
+            if(SqlDB.Command($"insert into Ingredients values ('{Content.Text}', {weight}, {CaloriesCalculate(proteins, fats, carbohydrates)}, {proteins}, {fats}, {carbohydrates})"))
             {
                SetIngredients();
             }

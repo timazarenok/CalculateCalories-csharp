@@ -5,18 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CaloriesCalculator"
         mc:Ignorable="d"
-        Title="IngredientsWindow" Height="450" Width="800">
+        Title="Ингредиенты" Height="450" Width="800">
     <Grid>
         <Label FontSize="15" FontWeight="Bold" Content="Добавьте новый ингредиент" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
-        <StackPanel Margin="20,50,0,0" HorizontalAlignment="Left" Width="150">
+        <StackPanel Margin="20,0,0,100" HorizontalAlignment="Left" Width="150" Height="150">
             <Label FontSize="13" Content="Название " HorizontalAlignment="Left" VerticalAlignment="Center" Margin=" 30,0,0,10"/>
             <TextBox x:Name="Content" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="20" />
             <Label FontSize="13" Content="Вес " HorizontalAlignment="Left" VerticalAlignment="Center" Margin=" 30,0,0,10"/>
             <TextBox x:Name="Weight" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="20" />
-            <Label FontSize="13" Content="Калории " HorizontalAlignment="Left" VerticalAlignment="Center" Margin=" 30,0,0,10"/>
-            <TextBox x:Name="Calories" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="20" />
         </StackPanel>
-        <StackPanel Margin="200,50,0,0" HorizontalAlignment="Left" Width="150">
+        <StackPanel Margin="200,0,0,100" HorizontalAlignment="Left" Width="150" Height="200">
             <Label FontSize="13" Content="Белки " HorizontalAlignment="Left" VerticalAlignment="Center" Margin=" 30,0,0,10"/>
             <TextBox x:Name="Proteins" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="20" />
             <Label FontSize="13" Content="Жиры " HorizontalAlignment="Left" VerticalAlignment="Center" Margin=" 30,0,0,10"/>
@@ -26,6 +24,14 @@
         </StackPanel>
         <Button x:Name="Confirm" Width="100" Height="20" HorizontalAlignment="Center" Margin="0,150,600,0" Click="Confirm_Click">Добавить</Button>
         <Button x:Name="Delete" Width="100" Height="20" HorizontalAlignment="Center" Margin="0,150,350,0" Click="Delete_Click">Удалить</Button>
-        <DataGrid x:Name="Table" AutoGenerateColumns="True" Width="400" Margin="350, 50, 0, 20"/>
+        <DataGrid x:Name="Table" AutoGenerateColumns="False" Width="400" Margin="350, 50, 0, 20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ингредиент" Width="175" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Вес" Binding="{Binding Path=Weight}"/>
+                <DataGridTextColumn Header="Белки" Binding="{Binding Path=Proteins}"/>
+                <DataGridTextColumn Header="Жиры" Binding="{Binding Path=Fats}"/>
+                <DataGridTextColumn Header="Углеводы" Binding="{Binding Path=Carbohydrates}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

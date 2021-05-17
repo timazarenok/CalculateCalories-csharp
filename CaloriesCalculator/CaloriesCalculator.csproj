@@ -67,6 +67,7 @@
     <Compile Include="CategoriesWindow.xaml.cs">
       <DependentUpon>CategoriesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfoWindow.xaml.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DailyStats.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -102,6 +103,10 @@
     <Page Include="DishesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="IngredientsWindow.xaml">
       <SubType>Designer</SubType>

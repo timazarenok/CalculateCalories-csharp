@@ -1,0 +1,46 @@
+﻿<Window x:Class="CaloriesCalculator.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaloriesCalculator"
+        mc:Ignorable="d"
+        Title="InfoWindow" Height="800" Width="800">
+    <ScrollViewer>
+        <Grid>
+            <StackPanel>
+            <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center">О программе</Label>
+            <TextBlock TextWrapping="Wrap" FontSize="16" Width="700" VerticalAlignment="Top" Height="250">
+            Данный калькулятор калорий будет позволять рассчитывать рекомендуемое суточное количество калорий (килокалорий) необходимое для поддержания постоянного веса, похудения (снижения веса) а также для набора веса. 
+            Данный калькулятор будет помогать похудеть и снизить вес при правильном расчете потребляемых калорий. Для того, чтобы снизить вес на 454 грамм в неделю – требуется сократить потребление калорий на 500 калорий в день.
+            Снижение дневного потребления калорий ниже 1200, а также снижение веса более чем на 900 грамм в неделю не рекомендуется. Для более сбалансированной потери веса надо сократить дневное потребление калорий на 250 калорий 
+            и поднимите физическую нагрузку для увеличения расхода калорий на 250 калорий в день. Данный подход будет помогать предотвратить снижение метаболизма (обмена веществ) организма и увеличить мышечную массу.
+            </TextBlock>
+            <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center">Начало работы</Label>
+            <TextBlock TextWrapping="Wrap" FontSize="16" Width="700" Margin="0,50,0,0" Height="120">
+            После запуска программного средства, будет открыто окно с входом в программу. Так же будет расположено 2 кнопки.
+            Для того чтобы зарегестрироваться в программе треюуется ввести адрес электронной почты.
+            Чтобы подробнее узнать о программе можно воспользоваться кнопкой Справки. Для входа треюуется электронная почта.
+            </TextBlock>
+            <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Center">Руководство гостя</Label>
+            <TextBlock TextWrapping="Wrap" FontSize="16" Width="700" Margin="0,0,0,0" VerticalAlignment="Center" Height="80">
+            К сожалению для незарегестрированного пользователя функций практически нет. Все что Вы можете в качестве
+            гостя это зарегестрироваться либо откртыь справку и изучить все возможности программы и ее функционал.
+            </TextBlock>
+            <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Center">Руководство пользователя</Label>
+            <TextBlock TextWrapping="Wrap" FontSize="16" Width="700" Margin="0,0,0,0" Height="100">
+            После регистрации/входа пользователю открывается окно с блюдами, добавленными в прогрмму, и его дневной статистикой по БЖУ, каллориям и 
+            водой. Пользователь может просматривать список продуктов. Также есть возможность поиска по продуктам. В программе присутствует возможность
+            просмотра статистики предыдущих дней.
+            </TextBlock>
+            <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Center">Руководство администратора</Label>
+            <TextBlock TextWrapping="Wrap" FontSize="16" Width="700" Margin="0,0,0,0" Height="100">
+            Функциями администратора явяляются: добавление новых ингредиентов, блюд, так же добавление ингредиентов в блюда. Удаление блюд, ингредиентов.
+            </TextBlock>
+            <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Center">О разработчике</Label>
+            <TextBlock TextWrapping="Wrap" FontSize="16" Width="700" Margin="0,0,0,0" VerticalAlignment="Center" Height="100">
+            </TextBlock>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

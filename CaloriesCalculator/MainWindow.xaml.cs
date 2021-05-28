@@ -31,8 +31,14 @@ namespace CaloriesCalculator
             InitializeComponent();
             GetIngredients();
             SetUserStats();
+            GetUserSettings();
         }
-
+        private void GetUserSettings()
+        {
+            DataTable dt = SqlDB.Select($"select * from Users_Setting join Statuses on Users_Setting.status_id = Statuses.id where user_id={SqlDB.UserID}");
+            Status.Text = dt.Rows[0]["name"].ToString();
+            Weight.Text = dt.Rows[0]["weight"].ToString();
+        }
         private void SetUserStats()
         {
 

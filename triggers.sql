@@ -1,5 +1,12 @@
 use CaloriesCalculate;
 go
+create trigger Users_Created
+on Users
+after insert
+as
+insert into Users_Setting values ((select id from inserted), null, null)
+
+go
 create trigger Users_DishesAdd
 on Users_Dishes
 after insert

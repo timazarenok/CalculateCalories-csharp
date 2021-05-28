@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Предыдущие дни" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="Statistic" Width="400" Margin="0,0,300,0" Height="350" MouseDoubleClick="Statistic_MouseDoubleClick" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Button x:Name="Settings" Width="200" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,20,0,0" Click="Settings_Click">Параметры пользователя</Button>
+        <ListBox x:Name="Statistic" Width="400" Margin="0,50,300,0" Height="350" MouseDoubleClick="Statistic_MouseDoubleClick" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

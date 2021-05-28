@@ -1,4 +1,4 @@
-create database CaloriesCalculate;
+﻿create database CaloriesCalculate;
 use CaloriesCalculate;
 
 create table Users (
@@ -9,6 +9,21 @@ id int Identity(1,1) primary key,
 create table Categories (
 id int Identity(1,1) primary key,
 [name] varchar(50)
+)
+
+create table Statuses(
+id int Identity(1,1) primary key,
+[name] varchar(50),
+[value] int
+)
+
+insert into Statuses values ('Похудеть', 1500),('Набрать вес', 2500)
+select * from Users_Setting join Statuses on Users_Setting.status_id = Statuses.id where user_id=1
+create table Users_Setting (
+id int Identity(1,1) primary key,
+[user_id] int references Users(id),
+[status_id] int references Statuses(id),
+[weight] int
 )
 
 create table Ingredients (

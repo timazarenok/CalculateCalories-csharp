@@ -62,5 +62,11 @@ namespace CaloriesCalculator
             }
             Table.ItemsSource = dishes;
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            UserSettings window = new UserSettings();
+            window.Show();
+        }
     }
 }

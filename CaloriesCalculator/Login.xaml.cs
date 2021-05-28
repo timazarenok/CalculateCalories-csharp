@@ -59,8 +59,8 @@ namespace CaloriesCalculator
                 DataTable find = SqlDB.Select($"select * from [Users] where login='{LoginBox.Text}'");
                 if (find.Rows.Count > 0)
                 {
+                    SqlDB.GetUserId(LoginBox.Text);
                     MainWindow mw = new MainWindow();
-                    SqlDB.UserID = Convert.ToInt32(find.Rows[0]["id"]);
                     mw.Show();
                     Close();
                     MessageBox.Show("Пользователь авторизовался");
@@ -70,7 +70,7 @@ namespace CaloriesCalculator
                     SqlDB.Command($"insert into [Users] values ('{LoginBox.Text}')");
                     MainWindow mw = new MainWindow();
                     find = SqlDB.Select($"select * from [Users] where login='{LoginBox.Text}'");
-                    SqlDB.UserID = Convert.ToInt32(find.Rows[0]["id"]);
+                    SqlDB.GetUserId(LoginBox.Text);
                     mw.Show();
                     Close();
                 }

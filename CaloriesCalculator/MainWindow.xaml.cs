@@ -40,6 +40,11 @@ namespace CaloriesCalculator
             {
                 Status.Text = dt.Rows[0]["name"].ToString();
                 Weight.Text = dt.Rows[0]["weight"].ToString();
+                int height = Convert.ToInt32(dt.Rows[0]["height"].ToString());
+                int age = Convert.ToInt32(dt.Rows[0]["height"].ToString());
+                int weight = Convert.ToInt32(Weight.Text);
+                int calories_days = Convert.ToInt32(10 * weight + (6.25 * height) - (5 * age));
+                DaysCalories.Text += calories_days.ToString();
             }
         }
         private void SetUserStats()

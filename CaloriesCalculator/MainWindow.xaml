@@ -51,6 +51,7 @@
         <Button Click="UpdateAllOnClick" Padding="10 0" BorderThickness="0" Background="#98c1d9"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,300,70,0" Width="100" Height="25">
             Обновить
         </Button>
+        <TextBlock x:Name="DaysCalories" Width="200" Height="25" Margin="230,100,0,0" Text="Суточная норма: "/>
         <Button x:Name="AddWater" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200,205,0,0" Click="AddWater_Click">Добавить Воды (100мл)</Button>
         <Button x:Name="PreviousDays" Width="120" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="550,0,0,30" Click="PreviousDays_Click">Предыдущие дни</Button>
         <Button x:Name="Exit" Width="120" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="170,0,0,30" Click="Exit_Click">Выход</Button>

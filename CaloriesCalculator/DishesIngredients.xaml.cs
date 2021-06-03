@@ -38,10 +38,10 @@ namespace CaloriesCalculator
                 {
                     Name = dr["name"].ToString(),
                     Category = dr["category"].ToString(),
-                    Calories = Convert.ToInt32(dr["calories"]),
-                    Proteins = Convert.ToInt32(dr["proteins"]),
-                    Fats = Convert.ToInt32(dr["fats"]),
-                    Carbohydrates = Convert.ToInt32(dr["carbohydrates"])
+                    Calories = Convert.ToDouble(dr["calories"]),
+                    Proteins = Convert.ToDouble(dr["proteins"]),
+                    Fats = Convert.ToDouble(dr["fats"]),
+                    Carbohydrates = Convert.ToDouble(dr["carbohydrates"])
                 });
             }
             Table.ItemsSource = dishes;

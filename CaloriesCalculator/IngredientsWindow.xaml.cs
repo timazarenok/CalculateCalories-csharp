@@ -35,17 +35,17 @@ namespace CaloriesCalculator
                 ingredients.Add(new Ingredient()
                 {
                     Name = dr["name"].ToString(),
-                    Weight = Convert.ToInt32(dr["weight"]),
-                    Calories = Convert.ToInt32(dr["calories"]),
-                    Proteins = Convert.ToInt32(dr["proteins"]),
-                    Fats = Convert.ToInt32(dr["fats"]),
-                    Carbohydrates = Convert.ToInt32(dr["carbohydrates"])
+                    Weight = Convert.ToDouble(dr["weight"]),
+                    Calories = Convert.ToDouble(dr["calories"]),
+                    Proteins = Convert.ToDouble(dr["proteins"]),
+                    Fats = Convert.ToDouble(dr["fats"]),
+                    Carbohydrates = Convert.ToDouble(dr["carbohydrates"])
                 });
             }
             Table.ItemsSource = ingredients;
         }
 
-        public int CaloriesCalculate(int p, int f, int c)
+        public double CaloriesCalculate(double p, double f, double c)
         {
             return p * 4 + f * 9 + c * 4;
 
@@ -53,10 +53,10 @@ namespace CaloriesCalculator
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            int weight = Convert.ToInt32(Weight.Text);
-            int proteins = Convert.ToInt32(Proteins.Text);
-            int fats = Convert.ToInt32(Fats.Text);
-            int carbohydrates = Convert.ToInt32(Carbohydrates.Text);
+            double weight = Convert.ToDouble(Weight.Text);
+            double proteins = Convert.ToDouble(Proteins.Text);
+            double fats = Convert.ToDouble(Fats.Text);
+            double carbohydrates = Convert.ToDouble(Carbohydrates.Text);
             if(SqlDB.Command($"insert into Ingredients values ('{Content.Text}', {weight}, {CaloriesCalculate(proteins, fats, carbohydrates)}, {proteins}, {fats}, {carbohydrates})"))
             {
                SetIngredients();

@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CaloriesCalculator"
         mc:Ignorable="d"
-        Title="UserSettings" Height="350" Width="400">
+        Title="UserSettings" Height="550" Width="400">
     <Grid>
+        <Label Margin="0,0,0,300" Width="200" Height="25">Возраст</Label>
+        <TextBox x:Name="Age" Width="200" Height="25" Margin="0,0,0,250" PreviewTextInput="Weight_PreviewTextInput"/>
+        <Label Margin="0,0,0,450" Width="200" Height="25">Рост</Label>
+        <TextBox x:Name="Height" Width="200" Height="25" Margin="0,50,0,430" PreviewTextInput="Weight_PreviewTextInput"/>
         <Label Margin="0,0,0,150" Width="200" Height="25">Категория</Label>
         <ComboBox x:Name="Status" Margin="0,0,0,100" Width="200" Height="25"/>
         <Label Margin="0,0,0,0" Width="200" Height="25">Вес</Label>

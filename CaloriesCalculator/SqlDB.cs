@@ -11,7 +11,7 @@ namespace CaloriesCalculator
 {
     static class SqlDB
     {
-        private const string connectionString = @"Server=DESKTOP-VAR3OC6\SQLEXPRESS;Database=CaloriesCalculate;Trusted_Connection=True;";
+        private const string connectionString = @"Server=DESKTOP-U0H9G3H\SQLEXPRESS;Database=CaloriesCalculate;Trusted_Connection=True;";
         public static int UserID = 0;
         public static bool Command(string expression)
         {

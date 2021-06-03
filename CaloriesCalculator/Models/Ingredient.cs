@@ -9,10 +9,10 @@ namespace CaloriesCalculator
     public class Ingredient
     {
         public string Name { get; set; }
-        public int Weight { get; set; }
-        public int Calories { get; set; }
-        public int Proteins { get; set; }
-        public int Fats { get; set; }
-        public int Carbohydrates { get; set; }
+        public double Weight { get; set; }
+        public double Calories { get; set; }
+        public double Proteins { get; set; }
+        public double Fats { get; set; }
+        public double Carbohydrates { get; set; }
     }
 }

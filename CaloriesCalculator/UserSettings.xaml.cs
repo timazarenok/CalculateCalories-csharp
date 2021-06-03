@@ -45,9 +45,16 @@ namespace CaloriesCalculator
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             int status_id = SqlDB.GetId($"select * from Statuses where name='{Status.SelectedItem}'");
-            if (SqlDB.Command($"update Users_Setting set status_id={status_id}, weight={Weight.Text}"))
+            if (status_id > 0 && Weight.Text.Length > 0 && Age.Text.Length > 0 && Height.Text.Length > 0)
             {
-                MessageBox.Show("Параметры обновлены");
+                if(SqlDB.Command($"update Users_Setting set status_id={status_id}, weight={Weight.Text}, height={Height.Text}, age={Age.Text}"))
+                {
+                    MessageBox.Show("Параметры обновлены");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Введите все значения");
             }
         }
     }

@@ -33,9 +33,14 @@ namespace CaloriesCalculator
             List<DailyStats> stats = new List<DailyStats>();
             foreach(DataRow dr in dt.Rows)
             {
-                stats.Add(new DailyStats { ID = Convert.ToInt32(dr["id"]), Date = dr["date"].ToString(), Water = Convert.ToInt32(dr["water"]), 
-                    Proteins = Convert.ToInt32(dr["proteins"]), Fats = Convert.ToInt32(dr["fats"]), 
-                    Carbohydrates = Convert.ToInt32(dr["carbohydrates"]), Calories = Convert.ToInt32(dr["calories"])
+                stats.Add(new DailyStats { 
+                    ID = Convert.ToInt32(dr["id"]), 
+                    Date = dr["date"].ToString(), 
+                    Water = Convert.ToInt32(dr["water"]), 
+                    Proteins = Convert.ToDouble(dr["proteins"]), 
+                    Fats = Convert.ToDouble(dr["fats"]), 
+                    Carbohydrates = Convert.ToDouble(dr["carbohydrates"]), 
+                    Calories = Convert.ToDouble(dr["calories"])
                 });
             }
             Statistic.ItemsSource = stats;
@@ -54,10 +59,10 @@ namespace CaloriesCalculator
                 dishes.Add(new Dish
                 {
                     Name = dr["name"].ToString(),
-                    Proteins = Convert.ToInt32(dr["proteins"]),
-                    Fats = Convert.ToInt32(dr["fats"]),
-                    Carbohydrates = Convert.ToInt32(dr["carbohydrates"]),
-                    Calories = Convert.ToInt32(dr["calories"])
+                    Proteins = Convert.ToDouble(dr["proteins"]),
+                    Fats = Convert.ToDouble(dr["fats"]),
+                    Carbohydrates = Convert.ToDouble(dr["carbohydrates"]),
+                    Calories = Convert.ToDouble(dr["calories"])
                 });
             }
             Table.ItemsSource = dishes;
